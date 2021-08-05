@@ -67,7 +67,18 @@ export class AppComponent {
 
     console.log(dat)
 
+    const arrayOne={1:'a',2:'a',3:'a',4:'a',5:'a',6:'a'} 
+    const numArr= Object.keys(arrayOne).map(item => +item).filter(item => item%2===0).reduce((acc,val) => acc+val);
+    console.log(numArr);
 
+    const arrayTwo=[1,2,3,4,5,6]
+    const strArr=arrayTwo.filter(item=>item%2 != 0).join("")
+    console.log(strArr)
+
+
+  //{1:'a',2:'a',3:'a',4:'a',5:'a',6:'a'} convertir a un array y sumar los numeros pares
+
+  //[1,2,3,4,5,6] filtrar los numeros impares y mostrarlos como cadena
 
 
 

@@ -82,8 +82,10 @@ export class AppComponent {
 
 
 
+  }
 
-
+  printHello(event:any){
+    console.log("Hello");
   }
 
 }

@@ -1,11 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'test3',
   templateUrl: './test3.component.html',
   styleUrls: ['./test3.component.css']
 })
-export class Test3Component implements OnInit {
+export class Test3Component implements OnInit,OnChanges {
+
+  @Input() test = 'aaa';
+  @Input() names;
 
   name = "Name";
   lastname = "Last Name";
@@ -14,9 +17,43 @@ export class Test3Component implements OnInit {
     console.log("Name: "+this.name+" "+this.lastname)
   }
 
-  constructor() { }
+  constructor() {
+    console.log('CONTRUCTOR');
+  }
 
-  ngOnInit() {
+  ngOnChanges(changes:any){
+    console.log('ON CHANGES', changes);
+
+  }
+
+  ngOnInit(){
+    console.log('ON INIT');
+  }
+
+
+  ngDoCheck(){
+    console.log('DO CHECK');
+  }
+
+
+  ngAfterViewInit(){
+    console.log('VIEW INIT');
+  }
+
+  ngAfterContentInit(){
+    console.log('CONTENT INIT');
+  }
+
+  ngAfterContentChecked(){
+    console.log('CONTENT CHECK');
+  }
+
+  ngAfterViewChecked(){
+    console.log('VIEW CHECK');
+  }
+
+  ngOnDestroy(){
+    console.log('ON DESTROY');
   }
 
 }

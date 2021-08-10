@@ -2,3 +2,10 @@
 <test1 status = "busy" onSendData="printHello($event)" > </test1>
 <test2 name="Ken" lastName="Hervas" (onClickName)="printData($event)" (meButton)="printHello($event)"> </test2>
 <test3> </test3>
+
+<button (click)="sw = !sw">SHOW TEST3</button>
+<div *ngIf="sw">
+  <test3 
+  [names]="myStatus">
+  </test3>
+</div>

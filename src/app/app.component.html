@@ -34,4 +34,33 @@
   <p>NG CONTAINER</p>
 </ng-container>
 
-<test3 [listOfNames]="los"></test3>
+<ul>
+<test3 [listOfNames]="peopleList"></test3>
+<li *ngFor="let item of peopleList; let i = index">{{item}}{{i}}</li>
+</ul>
+
+<div style="border: 1px solid Orange;">
+  h
+</div>
+
+<input type = "text" [(ngModel)]="color">
+<div [style.background]="color">
+  h
+</div>
+
+<p [ngStyle]="{
+'background': color,
+'border': '5px gray solid'
+}">
+Hello
+</p>
+
+<div [class.class1]="color ==='hola'">
+  div with class
+</div>
+
+<p [ngClass]="{
+  'class1': color === 'hola0'
+  }">
+  Hello
+  </p>

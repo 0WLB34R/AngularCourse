@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'angCou';
   color:string;
+  peopleList;
   constructor(){
     const testMap = [1,2,3,4,5,6].map(item => item*2);
     console.log(testMap);

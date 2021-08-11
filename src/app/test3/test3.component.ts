@@ -10,11 +10,6 @@ export class Test3Component implements OnInit,OnChanges {
   @Input() test = 'aaa';
   @Input() names;
 
-  @Input() listOfNames = [{name:'juan', lastName:'Gutierrez'},
-  {name:'Ken', lastName:'Hervas'},
-  {name:'Carlos', lastName:'Perez'},
-  {name:'Ximena', lastName:'Valdez'},
-]
 
   name = "Name";
   lastname = "Last Name";

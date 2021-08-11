@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +8,12 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'angCou';
   color:string;
-  peopleList;
+  @Input() listOfNames = [{name:'Juan', lastName:'Gutierrez'},
+  {name:'Ken', lastName:'Hervas'},
+  {name:'Carlos', lastName:'Perez'},
+  {name:'Ximena', lastName:'Valdez'},
+  {name:'Juan', lastName:'Lopez'},
+]
   constructor(){
     const testMap = [1,2,3,4,5,6].map(item => item*2);
     console.log(testMap);

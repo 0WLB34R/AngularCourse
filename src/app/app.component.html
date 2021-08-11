@@ -34,11 +34,6 @@
   <p>NG CONTAINER</p>
 </ng-container>
 
-<ul>
-<test3 [listOfNames]="peopleList"></test3>
-<li *ngFor="let item of peopleList; let i = index">{{item}}{{i}}</li>
-</ul>
-
 <div style="border: 1px solid Orange;">
   h
 </div>
@@ -64,3 +59,11 @@ Hello
   }">
   Hello
   </p>
+
+
+<li *ngFor="let item of listOfNames"> {{item.name}} {{item.lastName}}</li>
+
+
+<ul >
+<li *ngFor="let item of [1,2,3,4,5]; let i = index">{{item}}{{i}}</li>
+</ul>

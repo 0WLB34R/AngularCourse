@@ -4,8 +4,24 @@
 <test3> </test3>
 
 <button (click)="sw = !sw">SHOW TEST3</button>
-<div *ngIf="sw">
+<div [hidden]="sw">
   <test3 
   [names]="myStatus">
   </test3>
+  <p>hello</p>
 </div>
+
+<ul >
+  <li *ngFor="let item of [1,2,3,4,5]; let i = index">{{item}}{{i}}</li>
+  <li>first</li>
+  <li>second</li>
+  <li>third</li>
+</ul>
+<input type="text" [(ngModel)]="color">
+<ul [ngSwitch]="color">
+  <li *ngSwitchCase="'red'">red</li>
+  <li *ngSwitchCase="'yellow'">yellow</li>
+  <li *ngSwitchCase="'blue'">blue</li>
+  <li *ngSwitchDefault>Default</li>
+</ul>
+

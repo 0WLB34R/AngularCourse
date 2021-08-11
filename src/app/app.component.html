@@ -1,5 +1,5 @@
 <p> Test1</p>
-<test1 status = "busy" onSendData="printHello($event)" > </test1>
+<test1 status = "busy" onSendData="printHello($event)" > helloooo</test1>
 <test2 name="Ken" lastName="Hervas" (onClickName)="printData($event)" (meButton)="printHello($event)"> </test2>
 <test3> </test3>
 
@@ -25,3 +25,13 @@
   <li *ngSwitchDefault>Default</li>
 </ul>
 
+<ng-template #template1>
+  <p>this is my template</p>
+</ng-template> 
+
+<button (click)="sw = !sw"> NGCONT </button>
+<ng-container *ngIf="sw else template1" style="margin=30px">
+  <p>NG CONTAINER</p>
+</ng-container>
+
+<test3 [listOfNames]="los"></test3>

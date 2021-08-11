@@ -29,6 +29,8 @@
   <p>this is my template</p>
 </ng-template> 
 
+
+
 <button (click)="sw = !sw"> NGCONT </button>
 <ng-container *ngIf="sw else template1" style="margin=30px">
   <p>NG CONTAINER</p>
@@ -64,6 +66,11 @@ Hello
 <li *ngFor="let item of listOfNames"> {{item.name}} {{item.lastName}}</li>
 
 
-<ul >
-<li *ngFor="let item of [1,2,3,4,5]; let i = index">{{item}}{{i}}</li>
-</ul>
+<ng-container *ngFor="let item of [1,2,3,4,5]; let i = index">
+  <ng-template #template2>
+  <ul><li [style.background]="'yellow'">{{item}}</li></ul>
+  </ng-template> 
+  <ul *ngIf="i%2 === 0; else template2">
+  <li [style.background]="'red'">{{item}}</li>
+  </ul>
+<ng-container>

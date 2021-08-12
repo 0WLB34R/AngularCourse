@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import {of} from 'rxjs'
+import {BehaviorSubject, of} from 'rxjs'
 import { map } from 'rxjs/operators';
 
 @Component({
@@ -18,6 +18,10 @@ export class AppComponent {
 ]
 
   tiktok = of([1,2,3,4,5]);
+  vide = 1;
+  tikktok = new BehaviorSubject(this.vide);
+  personD;
+  
   constructor(){
     const testMap = [1,2,3,4,5,6].map(item => item*2);
     console.log(testMap);
@@ -107,6 +111,10 @@ export class AppComponent {
       console.log('C Video', v);
     });
 
+    this.personD=this.tikktok.subscribe(v=> {
+      console.log('D Video', v);
+    });
+
   
   }
 
@@ -120,6 +128,11 @@ export class AppComponent {
   }
 
   onAddVideo(){
-    this.tiktok = of([6,7,8,9]);
+    this.vide=this.vide+1
+    this.tikktok.next(this.vide);
+  }
+
+  personDUnsubscribe(){
+    this.personD.unsubscribe();
   }
 }

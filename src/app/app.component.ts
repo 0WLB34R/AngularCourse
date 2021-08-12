@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import {of} from 'rxjs'
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +16,8 @@ export class AppComponent {
   {name:'Ximena', lastName:'Valdez'},
   {name:'Juan', lastName:'Lopez'},
 ]
+
+  tiktok = of([1,2,3,4,5]);
   constructor(){
     const testMap = [1,2,3,4,5,6].map(item => item*2);
     console.log(testMap);
@@ -81,14 +85,31 @@ export class AppComponent {
     const strArr=arrayTwo.filter(item=>item%2 != 0).join("")
     console.log(strArr)
 
+    
 
   //{1:'a',2:'a',3:'a',4:'a',5:'a',6:'a'} convertir a un array y sumar los numeros pares
 
   //[1,2,3,4,5,6] filtrar los numeros impares y mostrarlos como cadena
 
 
+    this.tiktok.pipe(
+       map(s => s.join('-')),
+       map(s=> s+'Hola')
+    ).subscribe(v=> {
+      console.log('A Video', v);
+    });
+    
+    this.tiktok.subscribe(v=> {
+      console.log('B Video', v);
+    });
+  
+    this.tiktok.subscribe(v=> {
+      console.log('C Video', v);
+    });
 
+  
   }
+
 
   printHello(event){
     console.log(event);
@@ -96,5 +117,9 @@ export class AppComponent {
   
   printData(event){
     console.log('CHILD COMP SENT: ',event);
+  }
+
+  onAddVideo(){
+    this.tiktok = of([6,7,8,9]);
   }
 }

@@ -80,4 +80,13 @@ Hello
 <button (click)="onAddVideo()">add</button>
 <button (click)="personDUnsubscribe()">unsubscribe</button>
 
-<p testdirective="red" (testoutput)="test($event)"> Mi directiva </p>
+<!-- <p testdirective="red" (testoutput)="test($event)"> Mi directiva </p> --->
+<p>-------</p>
+
+<input type = "text" [(ngModel)]="bgcolor">
+
+
+
+<input type="checkbox" [(ngModel)]="sw"> show
+
+<div *ngIfKen="sw" (test)="$tes(event)"> hello </div>

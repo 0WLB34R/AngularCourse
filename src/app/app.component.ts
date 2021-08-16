@@ -10,6 +10,8 @@ import { map } from 'rxjs/operators';
 export class AppComponent {
   title = 'angCou';
   color:string;
+  bgcolor:string;
+  sw;
   @Input() listOfNames = [{name:'Juan', lastName:'Gutierrez'},
   {name:'Ken', lastName:'Hervas'},
   {name:'Carlos', lastName:'Perez'},

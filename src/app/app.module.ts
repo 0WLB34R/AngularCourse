@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { Test1Component } from './test1/test1.component';
 import { Test2Component } from './test2/test2.component';
 import { DirectivaDirective } from './test3/directiva.directive';
+import { Directive2Directive } from './test3/directive2.directive';
 import { Test3Component } from './test3/test3.component';
 
 @NgModule({
@@ -14,7 +15,8 @@ import { Test3Component } from './test3/test3.component';
     Test1Component,
     Test2Component,
     Test3Component,
-    DirectivaDirective
+    DirectivaDirective,
+    Directive2Directive
   ],
   imports: [
     BrowserModule,

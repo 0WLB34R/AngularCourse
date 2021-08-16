@@ -22,7 +22,7 @@ export class Test3Component implements OnInit,OnChanges {
     console.log('CONTRUCTOR');
   }
 
-  ngOnChanges(changes:any){
+ /*  ngOnChanges(changes:any){
     console.log('ON CHANGES', changes);
 
   }
@@ -55,6 +55,6 @@ export class Test3Component implements OnInit,OnChanges {
 
   ngOnDestroy(){
     console.log('ON DESTROY');
-  }
+  } */
 
 }

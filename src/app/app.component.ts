@@ -135,4 +135,8 @@ export class AppComponent {
   personDUnsubscribe(){
     this.personD.unsubscribe();
   }
+
+  test(event){
+    console.log(event);
+  }
 }

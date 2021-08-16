@@ -13,10 +13,10 @@ export class DirectivaDirective implements OnChanges{
     this.element.nativeElement.style.backgroundColor=this.testdirective;
   };
 
-  @HostListener('mouseleave') onMouseLeave(){
-    this.setBackgroundColor(this.ccolor);
-    console.log(this.testdirective)
-  };
+  //@HostListener('mouseleave') onMouseLeave(){
+  //  this.setBackgroundColor(this.ccolor);
+  //  console.log(this.testdirective)
+ // };
 
  //@HostListener('mouseenter') onMouseEnter(){
  //   this.setBackgroundColor("blue");

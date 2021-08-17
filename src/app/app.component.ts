@@ -26,6 +26,7 @@ export class AppComponent {
 
   @ViewChild("myDiv1") myDivOne = ElementRef;
   @ViewChild("myCompKen") myComponentKen = ElementRef;
+  @ViewChild("myDiv3") myDiv3 = ElementRef;
   
   constructor(){
     const testMap = [1,2,3,4,5,6].map(item => item*2);
@@ -147,5 +148,9 @@ export class AppComponent {
 
   onShowLocalVars(){
     console.log(this.myDivOne)
+  }
+
+  changeClass(){
+    this.myDiv3.nativeElement.className = "class2"
   }
 }

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import {BehaviorSubject, of} from 'rxjs'
 import { map } from 'rxjs/operators';
 
@@ -23,6 +23,9 @@ export class AppComponent {
   vide = 1;
   tikktok = new BehaviorSubject(this.vide);
   personD;
+
+  @ViewChild("myDiv1") myDivOne = ElementRef;
+  @ViewChild("myCompKen") myComponentKen = ElementRef;
   
   constructor(){
     const testMap = [1,2,3,4,5,6].map(item => item*2);
@@ -140,5 +143,9 @@ export class AppComponent {
 
   test(event){
     console.log(event);
+  }
+
+  onShowLocalVars(){
+    console.log(this.myDivOne)
   }
 }

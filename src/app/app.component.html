@@ -90,3 +90,17 @@ Hello
 <input type="checkbox" [(ngModel)]="sw"> show
 
 <div *ngIfKen="sw" (test)="$tes(event)"> hello </div>
+
+<p>--------------------------------------------------------------------------------------------------------</p>
+
+<div #myDiv1> content</div>
+
+<input type="text" #myDiv2>
+
+<p>{{myDiv2}}</p>
+
+<button (click)="onShowLocalVars()">Show Natives</button>
+
+<test1 #myCompKen></test1>
+
+<p>{{myComponentKen}}</p>

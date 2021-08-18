@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { Core1Component } from './core1/core1.component';
 import { LayoutModule } from '../layout/layout.module';
+import { HeaderComponent } from '../layout/header/header.component';
+import { SidebarComponent } from '../layout/sidebar/sidebar.component';
 
 @NgModule({
   imports: [
@@ -14,7 +16,9 @@ import { LayoutModule } from '../layout/layout.module';
     Core1Component
   ],
   exports:[
-    Core1Component
+    Core1Component,
+    HeaderComponent,
+    SidebarComponent
   ]
 })
 export class CoreModule { }

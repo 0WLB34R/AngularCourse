@@ -12,6 +12,7 @@ export class AppComponent {
   color:string;
   bgcolor:string;
   sw;
+  name:string = 'Ken';
   @Input() listOfNames = [{name:'Juan', lastName:'Gutierrez'},
   {name:'Ken', lastName:'Hervas'},
   {name:'Carlos', lastName:'Perez'},

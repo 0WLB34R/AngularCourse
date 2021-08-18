@@ -3,6 +3,9 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { AdminModule } from './pages/admin/admin.module';
+import { BuyModule } from './pages/buy/buy.module';
+import { HomeModule } from './pages/home/home.module';
 import { Test1Component } from './test1/test1.component';
 import { Test2Component } from './test2/test2.component';
 import { DirectivaDirective } from './test3/directiva.directive';
@@ -22,7 +25,10 @@ import { Testmodule1Module } from './testmodule1/testmodule1.module';
   imports: [
     BrowserModule,
     FormsModule,
-    Testmodule1Module
+    HomeModule,
+    AdminModule,
+    BuyModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

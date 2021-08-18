@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { CoreModule } from './core/core.module';
 import { AdminModule } from './pages/admin/admin.module';
 import { BuyModule } from './pages/buy/buy.module';
 import { HomeModule } from './pages/home/home.module';
@@ -27,7 +28,8 @@ import { Testmodule1Module } from './testmodule1/testmodule1.module';
     FormsModule,
     HomeModule,
     AdminModule,
-    BuyModule
+    BuyModule,
+    CoreModule
 
   ],
   providers: [],

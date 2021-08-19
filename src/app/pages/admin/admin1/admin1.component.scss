@@ -1,4 +1,11 @@
 :host{
 
+  background-color: red;
+  border: 20 px green solid;
+  position: absolute;
 }
 
+::ng-deep div{
+  padding: 30 px;
+  background-color: blue;
+} 

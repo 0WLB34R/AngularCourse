@@ -1,7 +1,7 @@
 import { Component, Input,Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'persona',
+  selector: 'person',
   template: `
   <div [style.border]= "'2px solid black'" [style.background] = "vaccined ? 'green' : 'red'">
   <p>Name: {{name | uppercase}}</p>
@@ -12,7 +12,7 @@ import { Component, Input,Output, EventEmitter } from '@angular/core';
   <p>Vaccined: {{vaccined | tOF}}</p>
   <p *ngIf=!vaccined > Doses: {{doses}}<p>
 	<button *ngIf="!vaccined" 
-            (click)="onVacunar()"
+            (click)="onVaccinate()"
             [disabled]="age < 18 || disease"
             >
       Vacunar
@@ -34,7 +34,7 @@ export class PersonaComponent {
   ngOnInit() {
   }
 
-  onVacunar(){
+  onVaccinate(){
     this.vaccinate.emit();
   }
 

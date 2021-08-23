@@ -1,13 +1,12 @@
-<p>1-VACUNADOS<p>
+<p>1-VACUNADOS</p>
 <p>Vaccine: A={{aType}}, B={{bType}}, C={{cType}}</p>
 <div *ngIf = "vac.length === AllPosVac.length">EVERYBODY VACCINATED</div>
   
-  <div> 
-
+ 
   <div>VACCINATED Total: {{vac.length}}</div>
   <div style="display: flex; flexDirection: row;">
   <div *ngFor="let item of vac"> 
-    <persona 
+    <person 
     [name]="item.name"
      [age]="item.age"
      [date]="item.date"
@@ -17,14 +16,16 @@
      [doses]="item.doses"
      (vaccinate)="vaccinate(item)">
 
-    </persona> 
+    </person> 
   </div>
 </div>
+
+<p></p>
   
   <div>NOT VACCINATED Total: {{noVac.length}}</div>
   <div style="display: flex; flexDirection: row;">
     <div *ngFor="let item of noVac"> 
-      <persona
+      <person
       [name]="item.name"
       [age]="item.age"
       [date]="item.date"
@@ -33,6 +34,6 @@
       [vaccined]="item.vaccined"
       [doses]="item.doses"
       (vaccinate)="vaccinate(item)">
-      </persona> 
+      </person> 
     </div>
   </div>

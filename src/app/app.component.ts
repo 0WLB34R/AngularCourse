@@ -1,6 +1,5 @@
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
-import {BehaviorSubject, of} from 'rxjs'
-import { map } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-root',
@@ -8,150 +7,54 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'angCou';
-  color:string;
-  bgcolor:string;
-  sw;
-  name:string = 'Ken';
-  @Input() listOfNames = [{name:'Juan', lastName:'Gutierrez'},
-  {name:'Ken', lastName:'Hervas'},
-  {name:'Carlos', lastName:'Perez'},
-  {name:'Ximena', lastName:'Valdez'},
-  {name:'Juan', lastName:'Lopez'},
-]
+  allPeople =
+    [
+      {name: "juan", age: 16, date: "2019-09-07T15:50+00Z", disease: true, vaccineType: "A", vaccined:0, doses: 0},
+      {name: "maria", age: 23, date: "2019-09-07T15:50+00Z", disease: false, vaccineType: "B", vaccined:1, doses: 2},
+      {name: "carla", age: 45, date: "2019-09-07T15:50+00Z", disease: true, vaccineType: "C", vaccined:0, doses: 0},
+      {name: "marco", age: 50, date: "2019-09-07T15:50+00Z", disease: false, vaccineType: "A", vaccined:1, doses: 1},
+      {name: "marta", age: 12, date: "2019-09-07T15:50+00Z", disease: false, vaccineType: "A", vaccined:0, doses: 0},
+      {name: "jorge", age: 36, date: "2019-09-07T15:50+00Z", disease: false, vaccineType: "C", vaccined:1, doses: 3},
+      {name: "maritza", age: 18, date: "2019-09-07T15:50+00Z", disease: false, vaccineType: "C", vaccined:0, doses: 0},
+      {name: "leonardo", age: 35, date: "2019-09-07T15:50+00Z", disease: true, vaccineType: "B", vaccined:0, doses: 0},
+      {name: "ramiro", age: 24, date: "2019-09-07T15:50+00Z", disease: false, vaccineType: "B", vaccined:1, doses: 2},
+      {name: "juana", age: 13, date: "2019-09-07T15:50+00Z", disease: false, vaccineType: "A", vaccined:0, doses: 0}
+     ]
 
-  tiktok = of([1,2,3,4,5]);
-  vide = 1;
-  tikktok = new BehaviorSubject(this.vide);
-  personD;
+    vac = this.allPeople.filter(per => per.vaccined);
+    noVac = this.allPeople.filter(per => !(per.vaccined));
+    AllPosVac = this.allPeople.filter(per => per.age>=18 && !per.disease);
+    aType=this.allPeople.filter(per => per.vaccineType === 'A').length;
+    bType=this.allPeople.filter(per => per.vaccineType === 'B').length;
+    cType=this.allPeople.filter(per => per.vaccineType === 'C').length;
 
-  @ViewChild("myDiv1") myDivOne = ElementRef;
-  @ViewChild("myCompKen") myComponentKen = ElementRef;
-  @ViewChild("myDiv3") myDiv3 = ElementRef;
   
   constructor(){
-    const testMap = [1,2,3,4,5,6].map(item => item*2);
-    console.log(testMap);
 
-    const testforEach = [1,2,3,4,5,6].forEach(item => item*2);
-    console.log(testforEach);
-
-    const testFind = [1,2,6,4,5,6].find(item => item === 6);
-    console.log(testFind);
-
-    const testFilter = [1,2,3,4,5,6].filter(item => item % 2 === 0);
-    console.log(testFilter);
-
-    const testFindIndex = [1,2,2,4,5,6].findIndex(item => item === 2);
-    console.log(testFindIndex);
-
-    const testIndexOf = "Ken".indexOf("K");
-    console.log(testIndexOf);
-
-    const testJoin = ["k", "e", "n"].join('-');
-    console.log(testJoin);
-
-    const testSplit = "Alejandro".split('');
-    console.log(testSplit);
-
-    const testSplice = ["k", "e", "n"].splice(1,1);
-    console.log(testSplice);
-
-    const testSplice2 = ["k", "e", "n"];
-    testSplice2.splice(1,1)
-    console.log(testSplice2);
-
-    const testReduce = [1,2,3,4,5,6].reduce((acc,value)=>acc+value, 2);
-    console.log(testReduce);
-
-
-    const testEntries = {name:"Ken", key:"RPC"};
-    console.log("Stuff",Object.entries(testEntries));
-
-    const testKey = {name:"Ken", key:"RPC"};
-    console.log("Stuff2",Object.keys(testKey));
-    console.log("Stuff3",Object.values(testKey));
-
-    let testLetThisBeAVariableInCOntext = 5;
-    
-    const array1 = [1,2,3,4,5,6];
-    const array2 = [9,10,11,...array1]; //called SPREAD, not only for arrays, and used frequently in Redux
-    console.log(array2)
-
-    const per3 = {name : "a", age : 12, data1:"c", data2:"d"} //Desestructuracion
-
-    const {name, age} = per3
-
-    console.log(name, age)
-
-    const {data2:dat}= per3
-
-    console.log(dat)
-
-    const arrayOne={1:'a',2:'a',3:'a',4:'a',5:'a',6:'a'} 
-    const numArr= Object.keys(arrayOne).map(item => +item).filter(item => item%2===0).reduce((acc,val) => acc+val);
-    console.log(numArr);
-
-    const arrayTwo=[1,2,3,4,5,6]
-    const strArr=arrayTwo.filter(item=>item%2 != 0).join("")
-    console.log(strArr)
-
-    
-
-  //{1:'a',2:'a',3:'a',4:'a',5:'a',6:'a'} convertir a un array y sumar los numeros pares
-
-  //[1,2,3,4,5,6] filtrar los numeros impares y mostrarlos como cadena
-
-
-    this.tiktok.pipe(
-       map(s => s.join('-')),
-       map(s=> s+'Hola')
-    ).subscribe(v=> {
-      console.log('A Video', v);
-    });
-    
-    this.tiktok.subscribe(v=> {
-      console.log('B Video', v);
-    });
-  
-    this.tiktok.subscribe(v=> {
-      console.log('C Video', v);
-    });
-
-    this.personD=this.tikktok.subscribe(v=> {
-      console.log('D Video', v);
-    });
-
-  
+    console.log(Object.values(this.AllPosVac));
   }
 
-
-  printHello(event){
-    console.log(event);
-  }
-  
-  printData(event){
-    console.log('CHILD COMP SENT: ',event);
-  }
-
-  onAddVideo(){
-    this.vide=this.vide+1
-    this.tikktok.next(this.vide);
-  }
-
-  personDUnsubscribe(){
-    this.personD.unsubscribe();
-  }
-
-  test(event){
-    console.log(event);
-  }
-
-  onShowLocalVars(){
-    console.log(this.myDivOne)
-  }
-
-  changeClass(){
-    this.myDiv3.nativeElement.className = "class2"
+  vaccinate(per:any) {
+    const index = this.noVac.findIndex(item => item === per);
+    per.doses = per.doses +1;
+    if(per.vaccineType === "A"){
+      if(per.doses  === 1){
+        this.noVac.splice(index, 1);
+        per.vaccined = 1
+        this.vac.push(per);
+      }
+    } else if(per.vaccineType === "B"){
+      if(per.doses  === 2){
+        this.noVac.splice(index, 1);
+        per.vaccined = 1
+        this.vac.push(per);
+      }
+    } else if(per.vaccineType === "C"){
+      if(per.doses  === 3){
+        this.noVac.splice(index, 1);
+        per.vaccined = 1
+        this.vac.push(per);
+      }
+    }
   }
 }

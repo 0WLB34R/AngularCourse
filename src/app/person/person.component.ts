@@ -15,7 +15,7 @@ import { Component, Input,Output, EventEmitter } from '@angular/core';
             (click)="onVaccinate()"
             [disabled]="age < 18 || disease"
             >
-      Vacunar
+      Vaccinate
     </button>
   </div>
   `

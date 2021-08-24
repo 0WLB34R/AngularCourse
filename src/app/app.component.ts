@@ -121,10 +121,22 @@ export class AppComponent {
     this.personD=this.tikktok.subscribe(v=> {
       console.log('D Video', v);
     });
+ 
+  this.pure(3,4);
+  this.impure(3,4)
 
-  
   }
 
+  pure(numberA:number, numberB:number):number{
+    console.log(numberA+numberB);
+    return numberA+numberB;
+  }
+
+  impure(a:number, b:number){
+    const aux= Math.random()
+    console.log(a+b+aux);
+    return a+b+aux;
+  }
 
   printHello(event){
     console.log(event);

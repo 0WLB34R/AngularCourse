@@ -5,16 +5,20 @@ import { View3sub2Component } from './view3sub2/view3sub2.component';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  {
-    path:'', redirectTo: 'view3sub1', pathMatch:'full'
-  },
-  {path: 'view3sub1', component: View3sub1Component}
-]
+  {path: '', redirectTo: 'view3sub1', pathMatch: 'full'},
+  {path: 'view3sub1', component: View3sub1Component,
+  children: [
+    {
+      path: 'view3sub2sub1', component: View3sub2Component
+    }
+  ]
+  }
+];
 
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forChild([])
+    RouterModule.forChild(routes)
   ],
   declarations: [
     View3sub1Component,

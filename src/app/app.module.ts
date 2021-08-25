@@ -19,25 +19,29 @@ import { View1subComponent } from './view1/view1sub1/view1sub.component';
 import { View1sub2Component } from './view1/view1sub2/view1sub2.component';
 import { View2Component } from './view2/view2.component';
 
-const routes:Routes =[
-  {
-    path:'', redirectTo: 'view1', pathMatch:'full'
-  },
-  {path: 'view3', loadChildren:() => import ('./view3/view3.module').then(m=>m.View3Module)}
-  ,{
-    path:'view1', component: View1Component,
-    children:[
-      {
-        path:'view1sub1', component: View1subComponent
-      },
-      {
-        path:'view1sub2', component: View1sub2Component
-      }
-    ]
-  },
-  {
-    path:'view2', component: View2Component
-  }
+const routes:Routes = [{
+  path: '', redirectTo: 'view1', pathMatch: 'full'
+},
+{
+  path: 'view1', component: View1Component,
+  children: [
+    {
+      path: '', redirectTo: 'view1sub1', pathMatch: 'full'
+    },
+    {
+      path: 'view1sub1', component: View1subComponent,
+    },
+    {
+      path: 'view1sub2', component: View1sub2Component,
+    }
+  ]
+},
+{
+  path: 'view2', component: View2Component
+},
+{
+  path: 'view3', loadChildren: () => import('./view3/view3.module').then(m => m.View3Module)
+}
 ];
 
 @NgModule({
@@ -63,7 +67,7 @@ const routes:Routes =[
     CoreModule,
     SharedModule,
     RouterModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
 
   ],
   providers: [],

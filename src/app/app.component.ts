@@ -24,6 +24,7 @@ export class AppComponent {
   vide = 1;
   tikktok = new BehaviorSubject(this.vide);
   personD;
+  data=[1,2,3,4,5,6,7,8,9];
 
   @ViewChild("myDiv1") myDivOne = ElementRef;
   @ViewChild("myCompKen") myComponentKen = ElementRef;

@@ -7,6 +7,7 @@ import { CoreModule } from './core/core.module';
 import { AdminModule } from './pages/admin/admin.module';
 import { BuyModule } from './pages/buy/buy.module';
 import { HomeModule } from './pages/home/home.module';
+import { SharedModule } from './shared/shared.module';
 import { Test1Component } from './test1/test1.component';
 import { Test2Component } from './test2/test2.component';
 import { DirectivaDirective } from './test3/directiva.directive';
@@ -21,7 +22,8 @@ import { Testmodule1Module } from './testmodule1/testmodule1.module';
     Test2Component,
     Test3Component,
     DirectivaDirective,
-    Directive2Directive
+    Directive2Directive,
+    
   ],
   imports: [
     BrowserModule,
@@ -29,7 +31,8 @@ import { Testmodule1Module } from './testmodule1/testmodule1.module';
     HomeModule,
     AdminModule,
     BuyModule,
-    CoreModule
+    CoreModule,
+    SharedModule
 
   ],
   providers: [],

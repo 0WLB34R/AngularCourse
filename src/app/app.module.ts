@@ -2,9 +2,15 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
+import { AdminComponent } from './admincomps/admin/admin.component';
+import { Admin1Component } from './admincomps/admin1/admin1.component';
+import { Admin2Component } from './admincomps/admin2/admin2.component';
 
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
+import { HomeComponent } from './homecomps/home/home.component';
+import { Home1Component } from './homecomps/home1/home1.component';
+import { Home2Component } from './homecomps/home2/home2.component';
 import { AdminModule } from './pages/admin/admin.module';
 import { BuyModule } from './pages/buy/buy.module';
 import { HomeModule } from './pages/home/home.module';
@@ -41,6 +47,34 @@ const routes:Routes = [{
 },
 {
   path: 'view3', loadChildren: () => import('./view3/view3.module').then(m => m.View3Module)
+},
+{
+  path: 'home', component: HomeComponent,
+  children: [
+    {
+      path: '', redirectTo: 'home1', pathMatch: 'full'
+    },
+    {
+      path: 'home1', component: Home1Component,
+    },
+    {
+      path: 'home2', component: Home2Component,
+    }
+  ]
+},
+{
+  path: 'admin', component: AdminComponent,
+  children: [
+    {
+      path: '', redirectTo: 'admin1', pathMatch: 'full'
+    },
+    {
+      path: 'admin1', component: Admin1Component,
+    },
+    {
+      path: 'admin2', component: Admin2Component,
+    }
+  ]
 }
 ];
 
@@ -55,7 +89,14 @@ const routes:Routes = [{
     View1Component,
     View2Component,
     View1sub2Component,
-    View1subComponent
+    View1subComponent,
+    HomeComponent,
+    Home1Component,
+    Home2Component,
+    AdminComponent,
+    Admin1Component,
+    Admin2Component
+    
     
   ],
   imports: [

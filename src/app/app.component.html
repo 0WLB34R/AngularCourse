@@ -47,3 +47,8 @@ routerLinkActive="active-router">admin2</button>
 <button (click)="onGoView2FromTS()">GO VIEW 2 FROM TS</button>
 <button routerLink="view2/5/sub/34"
         routerLinkActive="active-router">view2 34</button>
+
+        <button routerLink="view2/5/sub/34"
+        [queryParams]="{name:'ken', lastName:'H'}"
+        routerLinkActive="active-router">view2 with query params</button>
+        <button (click)="onGoView2FromTSQP()">GO VIEW 2 FROM TS QS</button>

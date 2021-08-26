@@ -1,4 +1,5 @@
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import {BehaviorSubject, of} from 'rxjs'
 import { map } from 'rxjs/operators';
 
@@ -19,7 +20,7 @@ export class AppComponent {
   {name:'Ximena', lastName:'Valdez'},
   {name:'Juan', lastName:'Lopez'},
 ]
-
+  id:number = 3;
   tiktok = of([1,2,3,4,5]);
   vide = 1;
   tikktok = new BehaviorSubject(this.vide);
@@ -30,7 +31,7 @@ export class AppComponent {
   @ViewChild("myCompKen") myComponentKen = ElementRef;
   @ViewChild("myDiv3") myDiv3 = ElementRef;
   
-  constructor(){
+  constructor(private router: Router){
     const testMap = [1,2,3,4,5,6].map(item => item*2);
     console.log(testMap);
 
@@ -166,5 +167,9 @@ export class AppComponent {
 
   changeClass(){
     this.myDiv3.nativeElement.className = "class2"
+  }
+
+  onGoView2FromTS():void{
+    this.router.navigate(['view2', this.id, 'sub', 33333])
   }
 }

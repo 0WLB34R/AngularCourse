@@ -37,7 +37,7 @@ routerLinkActive="active-router">admin1</button>
 
 <button routerLink="admin/admin2"
 routerLinkActive="active-router">admin2</button>
-<router-outlet> </router-outlet>
+<router-outlet></router-outlet>
 </div>
 
 
@@ -52,3 +52,30 @@ routerLinkActive="active-router">admin2</button>
         [queryParams]="{name:'ken', lastName:'H'}"
         routerLinkActive="active-router">view2 with query params</button>
         <button (click)="onGoView2FromTSQP()">GO VIEW 2 FROM TS QS</button>
+<p>----------------------<p>
+        <button routerLink="h0me"
+        routerLinkActive="active-router">h0me</button>
+
+        <button routerLink="h0me/subh0me"
+        routerLinkActive="active-router">subh0me</button>
+
+        <button routerLink="h0me/h0me/h0me1"
+        routerLinkActive="active-router">h0me1</button>
+
+        <button routerLink="h0me/h0me/h0me2"
+        routerLinkActive="active-router">h0me2</button>
+
+        <button routerLink="adm1n"
+        routerLinkActive="active-router">adm1n</button>
+
+        <button routerLink="adm1n/subadm1n"
+        routerLinkActive="active-router">subadm1n</button>
+
+        <button routerLink="adm1n/adm1n/adm1n1"
+        routerLinkActive="active-router">adm1n1</button>
+
+        <button routerLink="adm1n/adm1n/adm1n2"
+        routerLinkActive="active-router">adm1n2</button>
+
+<router-outlet></router-outlet>
+

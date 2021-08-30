@@ -75,6 +75,12 @@ const routes:Routes = [{
       path: 'admin2', component: Admin2Component,
     }
   ]
+},
+{
+  path: 'h0me', loadChildren: () => import('./h0me/h0me.module').then(m => m.H0meModule)
+},
+{
+  path: 'adm1n', loadChildren: () => import('./adm1n/adm1n.module').then(m => m.Adm1nModule)
 }
 ];
 

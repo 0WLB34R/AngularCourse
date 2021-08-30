@@ -3,6 +3,7 @@ import { AppComponent } from './app.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 
+
 const routes: Routes = [
   {path:'', redirectTo:'login',pathMatch:'full'},
   {path:'login', loadChildren: ()=> import('./login/login.module').then(m => m.LoginModule)},
@@ -16,7 +17,8 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+  
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PublicationService } from './services/publication.service';
 import { SingletonService } from './services/singleton.service';
 import { Test1Service } from './services/test1.service';
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-login',
@@ -10,12 +11,30 @@ import { Test1Service } from './services/test1.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private testService:Test1Service, private singletonService:SingletonService, private publicationService: PublicationService) { 
+  name = new FormControl('');
+
+
+  formReactive: FormGroup;
+
+  constructor(private formBuilder: FormBuilder, private testService:Test1Service, private singletonService:SingletonService, private publicationService: PublicationService) { 
     console.log(this.testService.getItems());
+
+    this.formReactive = this.formBuilder.group({
+      name: '',
+      lastName: ['', [Validators.required]],
+      date: ''
+    });
   }
 
   ngOnInit() {
     this.publicationService.getAll().subscribe( res => console.log(res));
+    this.formReactive.valueChanges.subscribe(res => {
+      console.log('FORM REACTOVE', res);
+    })
+
+    this.name.valueChanges.subscribe(res => {
+      console.log('CHANGES', res)
+    });
   }
 
   setMessage(){
@@ -61,6 +80,14 @@ export class LoginComponent implements OnInit {
 
   onSubmitTemplate(values:any){
     console.log('VALUES: ', values)
+  }
+
+  onShow(){
+    console.log(this.name.value)
+  }
+
+  onShowAll(){
+    console.log('DDDDD', this.formReactive.value)
   }
 
 }

@@ -51,3 +51,16 @@ I am a simple static toast.
   <button type="submit">submit</button>
 </form>
 
+
+<p>---------REACTIVE FORMS------------------</p>
+
+<input type="text" [formControl]="name">
+<button (click)="onShow()">SHOW</button>
+
+
+<div [formGroup]="formReactive">
+  <input type="text" formControlName="name">
+  <input type="text" formControlName="lastName">
+  <input type="text" formControlName="date">
+</div>
+<button (click)="onShowAll()">SHOW ALL</button>

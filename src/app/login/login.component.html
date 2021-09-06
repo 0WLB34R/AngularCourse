@@ -40,3 +40,14 @@ I am a simple static toast.
 <button (click)="create()">create</button>
 <button (click)="delete()">delete</button>
 <button (click)="update()">update</button>
+<button (click)="patch()">patch</button>
+
+<p>TEMPLATE FORM</p>
+<form #formTemplate="ngForm"
+      (ngSubmit)="onSubmitTemplate(formTemplate)">
+  <input type="text" name="aagggg" ngModel>
+  <input type="text" name="bb" ngModel>
+  <input type="text" name="cc" ngModel>
+  <button type="submit">submit</button>
+</form>
+

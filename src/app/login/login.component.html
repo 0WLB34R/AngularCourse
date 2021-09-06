@@ -1,3 +1,10 @@
 <p>asdasd</p>
 
-<input type="text" required minlength="5" maxlength="20" [(ngModel)]="name" #nameLocal="ngModel"> </input>
+<input type="text" required minlength="5" maxlength="20" [(ngModel)]="name" #nameLocal="ngModel">
+
+<div>{{nameLocal}}</div>
+
+<div *ngIf="nameLocal.invalid && (nameLocal.touched || nameLocal.dirty)">
+  <div *ngIf="nameLocal.errors?.required">Name is required</div>
+  <div *ngIf="nameLocal.errors?.minlength">Too short</div>
+</div>

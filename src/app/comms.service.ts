@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 @Injectable({providedIn: 'root'})
 export class CommsService {
-  url="https://test-3c7e8-default-rtdb.firebaseio.com/"
+  url="https://vaccines-test-default-rtdb.firebaseio.com/"
   constructor(private http: HttpClient) { }
 
   public getAllVac():Observable<any>{
@@ -26,6 +26,7 @@ export class CommsService {
   }
 
   public deletePerson(id: string): Observable<any>{
+    console.log("Deleting...")
     return this.http.delete(
       `${this.url}unvaccinated/${id}.json`);
   }

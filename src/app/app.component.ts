@@ -14,47 +14,58 @@ export class AppComponent {
   
 
   constructor(private comm:CommsService){
+  this.vac=[]
+  this.unvac=[]
   this.comm.getAllVac().subscribe(data => this.buildVac(data))
   this.comm.getAllUnvac().subscribe(data => this.buildUnvac(data))
   }
 
   buildVac(data:any){
     this.vac=Object.entries(data);
+    this.checkNum()
+    this.checkAllVac()
   }
 
   buildUnvac(data:any){
     this.unvac=Object.entries(data);
     this.checkNum()
+    this.checkAllVac()
   }
 
-  Vaccinate(id,name,age,date,disease,doses, vaccineType){
-    var tempDoses = doses+1
+  Vaccinate(id){
+    var tempPerson = this.unvac.find(person => person[0] === id)
+    console.log(tempPerson)
+    console.log(tempPerson[1]['doses'])
+    var tempDoses = tempPerson[1]['doses']+1
     this.comm.updateVac(id,tempDoses).subscribe(res => console.log(res))
-    if(vaccineType === "A" && tempDoses ===1){
-      this.comm.deletePerson(id).subscribe(res => console.log(res))
-      this.comm.createPerson({"name": name, "age": age, "date": date, "disease": disease, "vaccineType": vaccineType, "vaccined":1, "doses": doses}).subscribe(res => console.log(res))
-    }else if(vaccineType === "B"&& tempDoses ===2){
-      this.comm.deletePerson(id).subscribe(res => console.log(res))
-      this.comm.createPerson({"name": name, "age": age, "date": date, "disease": disease, "vaccineType": vaccineType, "vaccined":1, "doses": doses}).subscribe(res => console.log(res))
-    }else if(vaccineType === "C"&& tempDoses ===3){
-      this.comm.deletePerson(id).subscribe(res => console.log(res))
-      this.comm.createPerson({"name": name, "age": age, "date": date, "disease": disease, "vaccineType": vaccineType, "vaccined":1, "doses": doses}).subscribe(res => console.log(res))
-    }
 
+    if(tempPerson[1]['vaccineType'] === "A" && tempDoses ===1){
+      this.comm.createPerson({"name":tempPerson[1]['name'],"age":tempPerson[1]['age'],"date":tempPerson[1]['date'],"disease":tempPerson[1]['disease'], "vaccineType":tempPerson[1]['vaccineType'],"vaccined":1,"doses":tempDoses}).subscribe(res => console.log(res))
+      this.comm.deletePerson(id).subscribe(res => console.log(res))
+    }else if(tempPerson[1]['vaccineType'] === "B"&& tempDoses ===2){
+ 
+      this.comm.createPerson({"name":tempPerson[1]['name'],"age":tempPerson[1]['age'],"date":tempPerson[1]['date'],"disease":tempPerson[1]['disease'], "vaccineType":tempPerson[1]['vaccineType'],"vaccined":1,"doses":tempDoses}).subscribe(res => console.log(res))
+      this.comm.deletePerson(id).subscribe(res => console.log(res))
+    }else if(tempPerson[1]['vaccineType'] === "C"&& tempDoses ===3){
+    
+      this.comm.createPerson({"name":tempPerson[1]['name'],"age":tempPerson[1]['age'],"date":tempPerson[1]['date'],"disease":tempPerson[1]['disease'], "vaccineType":tempPerson[1]['vaccineType'],"vaccined":1,"doses":tempDoses}).subscribe(res => console.log(res))
+      this.comm.deletePerson(id).subscribe(res => console.log(res))
+    }
+    
     this.vac=[]
     this.unvac=[]
-    
+
     this.comm.getAllVac().subscribe(data => this.buildVac(data))
     this.comm.getAllUnvac().subscribe(data => this.buildUnvac(data))
     this.checkAllVac()
-    this.checkNum()
+    
 
 
     window.location.reload();
   }
 
   checkAllVac():boolean{
-    return this.unvac.filter(person => person[1]['disease'] === false && person[1]['age'] >=18 ) ===undefined
+    return this.unvac.find(person => person[1]['disease'] === false && person[1]['age'] >=18 ) !==undefined
   }
 
   checkNum(){

@@ -1,8 +1,0 @@
-.ng-valid{
-  border: 3px solid green;
-}
-
-.ng-invalid.ng-touched{
-  border: 3px solid red;
-}
-

@@ -3,10 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
-  app: {
-    apiBaseUrl:"https://mock-facebook-angular-course-default-rtdb.firebaseio.com"
-  }
+  production: false
 };
 
 /*

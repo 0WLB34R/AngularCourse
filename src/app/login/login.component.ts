@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PublicationService } from './services/publication.service';
-import { SingletonService } from './services/singleton.service';
-import { Test1Service } from './services/test1.service';
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-login',
@@ -12,17 +9,21 @@ import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 export class LoginComponent implements OnInit {
 
   name:string=''; 
+  formReactive: FormGroup;
 
+  constructor(private formBuilder:FormBuilder) {
 
+    this.formReactive = this.formBuilder.group({
+      name: ['', [Validators.required, Validators.minLength(3)]],
+      lastName: ['', [Validators.required]]
+    });
 
-  constructor() { 
-  
   }
-ngOnInit(): void {
 
-}
+  ngOnInit(): void {
+  }
 
-
- 
-
+  getValue(value:string){
+    return this.formReactive.get(value);
+  }
 }

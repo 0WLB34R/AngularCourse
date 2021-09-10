@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {PublicationService} from "../shared/services/publication.service";
+import { PublicationService } from 'src/app/shared/services/publication.service';
 
 @Component({
   templateUrl: './home.component.html',

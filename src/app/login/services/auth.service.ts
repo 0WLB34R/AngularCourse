@@ -1,4 +1,3 @@
-
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
@@ -29,6 +28,14 @@ export class AuthService {
   private authSuccess(token:string, userId: string){
     localStorage.setItem('token', token);
     localStorage.setItem('userId', userId);
+  }
+
+  public getToken(): string | null {
+    return localStorage.getItem('token');
+  }
+
+  public getUserId(): string | null{
+    return localStorage.getItem('userId');
   }
 
 }

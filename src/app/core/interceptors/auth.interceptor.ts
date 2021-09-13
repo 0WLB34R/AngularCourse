@@ -3,24 +3,22 @@ import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
-  HttpInterceptor,
-  HttpParams
+  HttpInterceptor, HttpParams
 } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { AuthService } from '../../login/services/auth.service';
-import { catchError } from 'rxjs/operators';
+import {Observable, throwError} from 'rxjs';
+import {AuthService} from "../services/auth.service";
+import {catchError} from "rxjs/operators";
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
+
   constructor(private authService: AuthService) {}
 
-  intercept(
-    request: HttpRequest<unknown>,
-    next: HttpHandler
-  ): Observable<HttpEvent<unknown>> {
+  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+
     const token = this.authService.getToken();
 
-    if (token) {
+    if(token){
       let params = new HttpParams();
       params = params.append('auth', token);
 
@@ -31,10 +29,11 @@ export class AuthInterceptor implements HttpInterceptor {
     }
 
     return next.handle(request).pipe(
-      catchError((err: any) => {
-        console.log('ERROR', err);
-        return throwError('ERROR EXTRA');
+      catchError( (err:any) => {
+        console.log('ERROR', err)
+        return throwError('ERROR EXTRA')
       })
     );
   }
+
 }

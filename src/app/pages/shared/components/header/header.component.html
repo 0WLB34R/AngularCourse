@@ -1,4 +1,3 @@
-  
 <mat-toolbar class="header">
 <div class="header__left">
   <img
@@ -47,7 +46,10 @@
   <button mat-mini-fab color="primary" style="display: flex;justify-content: center;">
     <mat-icon>exit_to_app</mat-icon>
   </button>
-  <button mat-mini-fab color="primary" style="display: flex;justify-content: center;">
+  <button mat-mini-fab
+          (click)="onLogout()"
+          color="primary"
+          style="display: flex;justify-content: center;">
     <mat-icon>exit_to_app</mat-icon>
   </button>
 </div>

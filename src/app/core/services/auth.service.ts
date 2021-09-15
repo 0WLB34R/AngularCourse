@@ -43,7 +43,7 @@ export class AuthService {
     localStorage.removeItem('token');
     localStorage.removeItem('userId');
     this.router.navigate(['login'])
-    //times logout and firebase vs custom methods
+    //when dopes a token expire? and firebase vs custom methods
   }
 
   public verifyLogged():boolean{

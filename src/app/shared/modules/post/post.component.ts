@@ -5,11 +5,7 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './post.component.html'
 })
 export class PostComponent implements OnInit {
-  @Input() date:string='';
-  @Input() description:string='';
-  @Input() imageUrl:string='';
-  @Input() userPhotoUrl:string='';
-  @Input() idUser:string='';
+  @Input() data:any='';
 
   constructor() { }
 

@@ -4,7 +4,7 @@ import {MatDialogRef} from "@angular/material/dialog";
 import {AuthService} from "../../../../../core/services/auth.service";
 import {PublicationService} from "../../../../../pages/shared/services/publication.service";
 import {HomeService} from "../../../../../pages/home/home.service";
-import { ProfileService } from 'src/app/pages/profile/profile.service';
+import { ProfileService } from '../../../../../pages/profile/profile.service';
 
 @Component({
   selector: 'app-register',

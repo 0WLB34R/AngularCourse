@@ -21,7 +21,8 @@ const routes: Routes = [
     ReactiveFormsModule,
     RouterModule.forChild(routes),
     SharedMaterialModule
-  ]
+  ],
+  entryComponents: [RegisterComponent]
 })
 
 export class LoginModule {

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CommService } from './comm.service';
 import { FetchService } from './fetch.service';
 
 @Component({
@@ -9,7 +10,7 @@ export class AppComponent {
   wallets: any[] = [];
   trans: any[] = [];
 
-  constructor(private fetcher: FetchService) {}
+  constructor(private fetcher: FetchService, private comm:CommService) {}
 
   ngOnInit(): void {
     this.buildWallets();
@@ -71,12 +72,13 @@ export class AppComponent {
     this.fetcher.updateWall(to.id, to).subscribe((res) => this.buildWallets());
   }
 
-  editTrans(tran){
-    console.log(tran)
+  editTrans(tran:any){
+    this.comm.setMode("Edit")
+    this.comm.setInfo(tran)
   }
 
   createTrans(){
-    console.log("hole")
+    this.comm.setMode("Create")
   }
 }
 

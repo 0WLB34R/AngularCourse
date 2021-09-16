@@ -1,12 +1,11 @@
-<p>Mode: {{mode}}</p>
+<p>Mode: {{ mode }}</p>
 
-<form #formTemplate="ngForm"
-      (ngSubmit)="onSubmitTemplate(formTemplate)">
-  <input type="text" name="from" ngModel placeholder="from">
-  <input type="text" name="to" ngModel placeholder="to">
-  <input type="text" name="quantity" ngModel placeholder="quantity">
-  <input type="text" name="moneyType" ngModel placeholder="moneyType">
-  <input type="text" name="mineType" ngModel placeholder="mineType">
-  <input type="text" name="miner" ngModel placeholder="miner">
+<form #formTemplate="ngForm" (ngSubmit)="onSubmitTemplate(formTemplate)">
+  <input type="text" name="from" ngModel placeholder="from" value="32" />
+  <input type="text" name="to" ngModel placeholder="to" />
+  <input type="text" name="quantity" ngModel placeholder="quantity" />
+  <input type="text" name="moneyType" ngModel placeholder="moneyType" />
+  <input type="text" name="mineType" ngModel placeholder="mineType" />
+  <input type="text" name="miner" ngModel placeholder="miner" />
   <button type="submit">submit</button>
 </form>

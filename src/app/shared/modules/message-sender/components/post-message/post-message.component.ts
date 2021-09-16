@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import {MatDialogRef} from "@angular/material/dialog";
 import {AuthService} from "../../../../../core/services/auth.service";
@@ -26,10 +27,8 @@ export class PostMessageComponent implements OnInit {
       idUser: this.authService.getUserId()
     }).subscribe( res => {
         this.homeService.setLoad(true);
-        this.dialogRef.close();
     })
 
   }
 
 }
-

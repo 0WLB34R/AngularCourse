@@ -26,6 +26,7 @@ export class PostMessageComponent implements OnInit {
       idUser: this.authService.getUserId()
     }).subscribe( res => {
         this.homeService.setLoad(true);
+        this.dialogRef.close();
     })
 
   }

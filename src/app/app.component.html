@@ -22,8 +22,6 @@ TOTAL BTC: {{getTotalBtc()}} | TOTAL ETH: {{getTotalEth()}}
 
 <p>Transactions</p>
 
-<button>Create Transaction</button>
-
 <div style="display: flex; flex-direction: row;">
   <div *ngFor="let tran of trans; let i = index;">
 
@@ -35,9 +33,11 @@ TOTAL BTC: {{getTotalBtc()}} | TOTAL ETH: {{getTotalEth()}}
         mine
       </button>
 
-      <button (click)="EditTrans(tran)">Edit</button>
+      <button (click)="editTrans(tran)">Edit</button>
     </trans>
   </div>
 </div>
+
+<button (click)="createTrans()">Create Transaction</button>
 <p>--------------------------------------------------------------</p>
 <formus></formus>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'formus',
@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./formus.component.css']
 })
 export class FormComponent implements OnInit {
-  
+ 
+  @Input() mode = 'Create';
  
   constructor() {
 

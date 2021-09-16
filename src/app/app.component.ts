@@ -70,6 +70,14 @@ export class AppComponent {
       .subscribe((res) => this.buildWallets());
     this.fetcher.updateWall(to.id, to).subscribe((res) => this.buildWallets());
   }
+
+  editTrans(tran){
+    console.log(tran)
+  }
+
+  createTrans(){
+    console.log("hole")
+  }
 }
 
 

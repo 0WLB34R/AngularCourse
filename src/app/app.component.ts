@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog/dialog';
 import { FetchService } from './fetch.service';
 
 @Component({
@@ -10,7 +9,7 @@ export class AppComponent {
   wallets: any[] = [];
   trans: any[] = [];
 
-  constructor(private fetcher: FetchService, private matDialog: MatDialog) {}
+  constructor(private fetcher: FetchService) {}
 
   ngOnInit(): void {
     this.buildWallets();

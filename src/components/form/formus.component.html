@@ -1,0 +1,10 @@
+<form #formTemplate="ngForm"
+      (ngSubmit)="onSubmitTemplate(formTemplate)">
+  <input type="text" name="from" ngModel placeholder="from">
+  <input type="text" name="to" ngModel>
+  <input type="text" name="quantity" ngModel>
+  <input type="text" name="moneyType" ngModel>
+  <input type="text" name="mineType" ngModel>
+  <input type="text" name="miner" ngModel>
+  <button type="submit">submit</button>
+</form>

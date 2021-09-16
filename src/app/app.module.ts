@@ -6,16 +6,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { WalletComponent } from '../components/wallets/wallets.component';
 import { TransactionsComponent } from '../components/transactions/transactions.component';
-import { FormComponent } from '../components/form/form.component';
+import { FormComponent } from '../components/form/formus.component';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
-  declarations: [AppComponent, WalletComponent, TransactionsComponent, FormComponent],
+  declarations: [AppComponent, WalletComponent, TransactionsComponent, FormComponent, ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    FormsModule
   ],
   bootstrap: [AppComponent],
-  entryComponents: [FormComponent]
 })
 export class AppModule {}

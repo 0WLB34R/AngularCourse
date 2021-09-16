@@ -1,9 +1,9 @@
 import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'app-wallet',
-  templateUrl: './wallet.component.html',
-  styleUrls: ['./wallet.component.scss']
+  selector: 'wallets',
+  templateUrl: './wallets.component.html',
+  styleUrls: ['./wallets.component.scss']
 })
 export class WalletComponent implements OnInit {
 

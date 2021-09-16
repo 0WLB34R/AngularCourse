@@ -1,12 +1,11 @@
-<p>APP</p>
+<p>BITCOIN</p>
+
+<div>
+TOTAL BTC: {{getTotalEth()}} | TOTAL ETH: {{getTotalEth()}}
+</div>
 
 <p>Wallets</p>
 
-
-<div>
-  TOTAL BTC: {{getTotalCoin('btc')}}
-  TOTAL ETH: {{getTotalCoin('eth')}}
-</div>
 
 <div *ngIf="getTransactionsStatus()">
   THERE ARE NOT TRANSACTIONS
@@ -14,9 +13,9 @@
 
 <div style="display: flex; flex-direction: row">
   <div *ngFor="let wallet of wallets">
-    <app-wallet [data]="wallet">
+    <wallets [data]="wallet">
 
-    </app-wallet>
+    </wallets>
   </div>
 </div>
 
@@ -26,13 +25,13 @@
 <div style="display: flex; flex-direction: row;">
   <div *ngFor="let transaction of transactions; let i = index;">
 
-    <app-transaction [data]="transaction">
+    <trans [data]="transaction">
       <button
         [disabled]="transaction.mineType === 'PoS' &&
        transaction.miner < 20"
       (click)="onMine(transaction)">
         mine
       </button>
-    </app-transaction>
+    </trans>
   </div>
 </div>

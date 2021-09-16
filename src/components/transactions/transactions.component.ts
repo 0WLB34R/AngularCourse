@@ -2,8 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'trans',
-  templateUrl: './transactions.component.html',
-  styleUrls: ['./transactions.component.css']
+  templateUrl: './transactions.component.html'
 })
 export class TransactionsComponent implements OnInit {
 

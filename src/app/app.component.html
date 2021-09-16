@@ -1,7 +1,7 @@
 <p>BITCOIN</p>
 
-<div>
-TOTAL BTC: {{getTotalEth()}} | TOTAL ETH: {{getTotalEth()}}
+<div style="position: absolute; top: 10px; right: 10px">
+TOTAL BTC: {{getTotalBtc()}} | TOTAL ETH: {{getTotalEth()}}
 </div>
 
 <p>Wallets</p>
@@ -20,18 +20,22 @@ TOTAL BTC: {{getTotalEth()}} | TOTAL ETH: {{getTotalEth()}}
 </div>
 
 
-<p>---------------TRANSACTIONS-----------------------</p>
+<p>Transactions</p>
+
+<button>Create Transaction</button>
 
 <div style="display: flex; flex-direction: row;">
-  <div *ngFor="let transaction of transactions; let i = index;">
+  <div *ngFor="let tran of trans; let i = index;">
 
-    <trans [data]="transaction">
+    <trans [data]="tran">
       <button
-        [disabled]="transaction.mineType === 'PoS' &&
-       transaction.miner < 20"
-      (click)="onMine(transaction)">
+        [disabled]="tran.mineType === 'PoS' &&
+       tran.miner <= 5"
+      (click)="clickMine(tran)">
         mine
       </button>
+
+      <button>Edit</button>
     </trans>
   </div>
 </div>

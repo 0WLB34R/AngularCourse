@@ -9,7 +9,7 @@ import {Observable} from "rxjs";
 
 export class FetchService {
 
-  private url = 'https://test-3c7e8-default-rtdb.firebaseio.com'; //CHANGE THIS LATER
+  private url = 'https://bitcoin-test-a0874-default-rtdb.firebaseio.com'; //CHANGE THIS LATER
 
   constructor(private http: HttpClient) {}
 

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
+import { filter } from 'rxjs/operators';
 import { CommService } from './comm.service';
 import { FetchService } from './fetch.service';
+import { RealoaderService } from './realoader.service';
 
 @Component({
   selector: 'app-root',
@@ -10,11 +12,13 @@ export class AppComponent {
   wallets: any[] = [];
   trans: any[] = [];
 
-  constructor(private fetcher: FetchService, private comm:CommService) {}
+  constructor(private fetcher: FetchService, private comm:CommService, private reloader:RealoaderService) {}
 
   ngOnInit(): void {
     this.buildWallets();
     this.buildTrans();
+    this.reloader.currentLoad().pipe(filter(s => s === true))
+    .subscribe(s => this.buildTrans())
   }
 
   buildWallets(): void {
